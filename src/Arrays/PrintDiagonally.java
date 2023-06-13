@@ -12,6 +12,7 @@ public class PrintDiagonally {
                 arr[i][j] = sc.nextInt();
             }
         }
+        sc.close();
         int i = 0, j = 0;
         for (i = 0; i < n; i++) {
             int k = i;

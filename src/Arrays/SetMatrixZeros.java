@@ -13,6 +13,7 @@ public class SetMatrixZeros {
                 arr[i][j] = sc.nextInt();
             }
         }
+        sc.close();
         setZeroes(arr);
         displayMatrix(arr);
     }

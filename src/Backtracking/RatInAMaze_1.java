@@ -14,7 +14,7 @@ public class RatInAMaze_1 {
                 arr[i][j] = sc.nextInt();
             }
         }
-
+        sc.close();
         System.out.println(findPath(arr, n));
     }
 

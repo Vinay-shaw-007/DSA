@@ -10,6 +10,7 @@ public class ReverseArray {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+        sc.close();
         int i = 0, j = n-1;
         while (i<j) {
             arr[i] = arr[i] ^ arr[j];

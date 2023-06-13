@@ -11,6 +11,7 @@ public class MaxMin {
         for (int i = 0; i < 5; i++) {
             arr[i] = sc.nextInt();
         }
+        sc.close();
         for (int i = 0; i < 5; i++) {
             if (arr[i] < min) min = arr[i];
             else if (arr[i] > max) {
