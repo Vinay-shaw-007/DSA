@@ -16,8 +16,8 @@ public class Infix_to_Postfix {
         while (i < exp.length()) {
             char ch = exp.charAt(i), peek, pop;
             switch (ch) {
-                case '(' -> st.push(ch);
-                case '^' -> {
+                case '(' : st.push(ch);
+                case '^' : {
                     if(!st.isEmpty()){
                         peek = st.peek();
                         if(peek == '^') {
@@ -27,7 +27,7 @@ public class Infix_to_Postfix {
                         } else st.push(ch);
                     } else st.push(ch);
                 }
-                case '+' -> {
+                case '+' : {
                     if (st.isEmpty()) {
                         st.push(ch);
                     } else {
@@ -39,7 +39,7 @@ public class Infix_to_Postfix {
                         } else st.push(ch);
                     }
                 }
-                case '-' -> {
+                case '-' : {
                     if (!st.isEmpty()) {
                         peek = st.peek();
                         if (peek == '/' || peek == '*' || peek == '^' || peek == '+' || peek == '-') {
@@ -49,7 +49,7 @@ public class Infix_to_Postfix {
                         } else st.push(ch);
                     } else st.push(ch);
                 }
-                case '*', '/' -> {
+                case '*' : {
                     if (st.isEmpty()) {
                         st.push(ch);
                     } else {
@@ -61,7 +61,19 @@ public class Infix_to_Postfix {
                         } else st.push(ch);
                     }
                 }
-                case ')' -> {
+                case '/' : {
+                    if (st.isEmpty()) {
+                        st.push(ch);
+                    } else {
+                        peek = st.peek();
+                        if (peek == '^' || peek == '*' || peek == '/') {
+                            pop = st.pop();
+                            newExp.append(pop);
+                            continue;
+                        } else st.push(ch);
+                    }
+                }
+                case ')' : {
                     if (st.isEmpty()) {
                         st.push(ch);
                     } else {
@@ -75,7 +87,7 @@ public class Infix_to_Postfix {
                         }
                     }
                 }
-                default -> newExp.append(ch);
+                default : newExp.append(ch);
             }
             i++;
         }
