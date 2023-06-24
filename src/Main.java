@@ -7,7 +7,7 @@ public class Main {
         // IntelliJ IDEA suggests fixing it.
 
          
-        String n = "Find maximum height pyramid from the given array of objects", ans = "";
+        String n = "", ans = "";
 
         // Press Shift+F10 or click the green arrow button in the gutter to run the
         // code.
