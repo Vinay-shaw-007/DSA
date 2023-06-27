@@ -29,4 +29,7 @@ bin/
 .DS_Store
 
 ### Main Class ###
-.\src\Main.java
+Main.java
+
+.gradle
+target
