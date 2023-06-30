@@ -1,12 +1,14 @@
 package Binary_Tree;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Subtree_of_Another_Tree {
-    static Scanner sc = null;
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        sc = new Scanner(System.in);
+
 
         System.out.println("Create Tree");
         TreeNode root = createTree();
@@ -17,7 +19,7 @@ public class Subtree_of_Another_Tree {
         System.out.println(isSubTree(root, subRoot));
     }
 
-    private static TreeNode createTree() {
+    public static TreeNode createTree() {
         TreeNode root;
 
         System.out.println("Enter data: ");
@@ -71,3 +73,4 @@ class TreeNode {
         this.right = right;
     }
 }
+
