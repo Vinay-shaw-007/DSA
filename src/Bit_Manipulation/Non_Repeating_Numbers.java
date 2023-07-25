@@ -11,8 +11,8 @@ public class Non_Repeating_Numbers {
         int[] ans = new int[2];
         int res = 0, sitBitIndex = 1;
 
-        for (int i = 0; i < nums.length; i++) {
-            res = res ^ nums[i];
+        for (int j : nums) {
+            res = res ^ j;
         }
 
         String resBinary = Integer.toBinaryString(res);
