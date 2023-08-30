@@ -60,4 +60,40 @@ public class RatInAMaze_1 {
 
         }
     }
+    public static void helper(ArrayList<String> ans, int[][] arr, String ss, boolean[][] visited, int i, int j, int n) {
+        if (i == n - 1 && j == n - 1) {
+            ans.add(ss);
+            return;
+        }
+        // D
+        if (isValid(i + 1, j, arr, visited, n)) {
+            visited[i + 1][j] = true;
+            helper(ans, arr, ss+"D", visited, i + 1, j, n);
+            visited[i + 1][j] = false;
+        }
+
+        // L
+        if (isValid(i, j - 1, arr, visited, n)) {
+            visited[i][j - 1] = true;
+            helper(ans, arr, ss+"L", visited, i, j - 1, n);
+            visited[i][j - 1] = false;
+        }
+
+        // R
+        if (isValid(i, j + 1, arr, visited, n)) {
+            visited[i][j + 1] = true;
+            helper(ans, arr, ss+"R", visited, i, j + 1, n);
+            visited[i][j + 1] = false;
+        }
+
+        // U
+        if (isValid(i - 1, j, arr, visited, n)) {
+            visited[i - 1][j] = true;
+            helper(ans, arr, ss+"U", visited, i - 1, j, n);
+            visited[i - 1][j] = false;
+        }
+    }
+    public static boolean isValid(int i, int j, int[][] arr, boolean[][] visited, int n) {
+        return i >= 0 && i < n && j >= 0 && j < n && arr[i][j] == 1 && !visited[i][j];
+    }
 }

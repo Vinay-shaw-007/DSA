@@ -11,36 +11,37 @@ public class Sudoku {
 //                grid[i][j] = sc.nextInt();
 //            }
 //        }
-        int[][] grid = {
-                {3, 0, 6, 5, 0, 8, 4, 0, 0},
-                {5, 2, 0, 0, 0, 0, 0, 0, 0},
-                {0, 8, 7, 0, 0, 0, 0, 3, 1},
-                {0, 0, 3, 0, 1, 0, 0, 8, 0},
-                {9, 0, 0, 8, 6, 3, 0, 0, 5},
-                {0, 5, 0, 0, 9, 0, 6, 0, 0},
-                {1, 3, 0, 0, 0, 0, 2, 5, 0},
-                {0, 0, 0, 0, 0, 0, 0, 7, 4},
-                {0, 0, 5, 2, 0, 6, 3, 0, 0}
+        char[][] grid = {
+                {'3', '0', '6', '5', '0', '8', '4', '0', '0'},
+                {'5', '2', '0', '0', '0', '0', '0', '0', '0'},
+                {'0', '8', '7', '0', '0', '0', '0', '3', '1'},
+                {'0', '0', '3', '0', '1', '0', '0', '8', '0'},
+                {'9', '0', '0', '8', '6', '3', '0', '0', '5'},
+                {'0', '5', '0', '0', '9', '0', '6', '0', '0'},
+                {'1', '3', '0', '0', '0', '0', '2', '5', '0'},
+                {'0', '0', '0', '0', '0', '0', '0', '7', '4'},
+                {'0', '0', '5', '2', '0', '6', '3', '0', '0'}
         };
-//        int[][] grid = {
-//                {3, 6, 6, 5, 0, 8, 4, 0, 0},
-//                {5, 2, 0, 0, 0, 0, 0, 0, 0},
-//                {0, 8, 7, 0, 0, 0, 0, 3, 1},
-//                {0, 0, 3, 0, 1, 0, 0, 8, 0},
-//                {9, 0, 0, 8, 6, 3, 0, 0, 5},
-//                {0, 5, 0, 0, 9, 0, 6, 0, 0},
-//                {1, 3, 0, 0, 0, 0, 2, 5, 0},
-//                {0, 0, 0, 0, 0, 0, 0, 7, 4},
-//                {0, 0, 5, 2, 0, 6, 3, 0, 0}
+//        char[][] grid = {
+//                {'3', '6', '6', '5', '0', '8', '4', '0', '0'},
+//                {'5', '2', '0', '0', '0', '0', '0', '0', '0'},
+//                {'0', '8', '7', '0', '0', '0', '0', '3', '1'},
+//                {'0', '0', '3', '0', '1', '0', '0', '8', '0'},
+//                {'9', '0', '0', '8', '6', '3', '0', '0', '5'},
+//                {'0', '5', '0', '0', '9', '0', '6', '0', '0'},
+//                {'1', '3', '0', '0', '0', '0', '2', '5', '0'},
+//                {'0', '0', '0', '0', '0', '0', '0', '7', '4'},
+//                {'0', '0', '5', '2', '0', '6', '3', '0', '0'}
 //        };
         if (SolveSudoku(grid)) {
             printGrid(grid);
         } else System.out.println("Not possible");
     }
+
     //Function to print grids of the Sudoku.
-    static void printGrid (int[][] grid) {
+    static void printGrid(char[][] grid) {
         // add your code here
-        for (int[] ints : grid) {
+        for (char[] ints : grid) {
             for (int j = 0; j < grid[0].length; j++) {
                 System.out.print(ints[j] + " ");
             }
@@ -50,25 +51,26 @@ public class Sudoku {
     }
 
     //Function to find a solved Sudoku.
-    static boolean SolveSudoku (int[][] grid) {
+    static boolean SolveSudoku(char[][] grid) {
         // add your code here
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (grid[i][j] == 0) {
-                    for (int k = 1; k <= 9; k++) {
+                if (grid[i][j] == '0') {
+                    for (char k = '1'; k <= '9'; k++) {
                         if (isPossible(i, j, k, grid)) {
                             grid[i][j] = k;
                             if (SolveSudoku(grid)) return true;
                             grid[i][j] = 0;
                         }
-                        if (k == 9) return false;
                     }
+                    return false;
                 }
             }
         }
         return true;
     }
-    static boolean isPossible(int row, int column, int number, int[][] grid) {
+
+    static boolean isPossible(int row, int column, char number, char[][] grid) {
 
         // Check for row
         for (int i = 0; i < 9; i++)
@@ -88,7 +90,7 @@ public class Sudoku {
 
 
         // Check for 3x3 grid
-        for (int i = row; i < (row+3); i++) {
+        for (int i = row; i < (row + 3); i++) {
             for (int j = column; j < (column + 3); j++)
                 if (grid[i][j] == number) return false;
         }
