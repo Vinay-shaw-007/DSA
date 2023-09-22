@@ -17,7 +17,7 @@ public class WaveArray {
     public static ArrayList<Integer> wave(ArrayList<Integer> A) {
         //You Can Code Here
         Collections.sort(A);
-
+        
         for (int i = 1; i < A.size(); i+=2) {
             swap(A, i, i - 1);
         }

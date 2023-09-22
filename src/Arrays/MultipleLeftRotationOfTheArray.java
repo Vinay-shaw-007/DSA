@@ -10,9 +10,10 @@ public class MultipleLeftRotationOfTheArray {
         }
     }
 
-    private static void printArray(int[] a) {
+    public static void printArray(int[] a) {
         for (int i: a)
             System.out.print(i+ " ");
+        System.out.println();
     }
 
     public static int[][] multipleLeftRotation(int[] A, int[] B) {
