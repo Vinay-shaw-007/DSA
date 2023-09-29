@@ -15,14 +15,15 @@ public class ThreeSumProblem {
 
         Arrays.sort(nums);
         for (int num : nums) {
-            System.out.print(num+" ");
+            System.out.print(num + " ");
         }
         List<List<Integer>> ans = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
             if (i > 0 && nums[i] == nums[i - 1]) continue;
-            List<List<Integer>> temp = twoSum(nums, -nums[i], i+1);
-            for (List<Integer> list: temp) {
+            List<List<Integer>> temp = twoSum(nums, -nums[i], i + 1);
+            for (List<Integer> list : temp) {
                 list.add(0, nums[i]);
+                list.add(1, nums[i + 1]);
                 ans.add(list);
             }
         }
@@ -34,9 +35,6 @@ public class ThreeSumProblem {
         int r = nums.length - 1;
         List<List<Integer>> ans = new ArrayList<>();
         while (l < r) {
-            if (k == 2) {
-                System.out.println("l index = "+l+" r index = "+r);
-            }
             if (l > startFrom && nums[l] == nums[l - 1]) {
                 l++;
                 continue;
@@ -51,11 +49,6 @@ public class ThreeSumProblem {
                 List<Integer> temp = new ArrayList<>();
                 temp.add(nums[l]);
                 temp.add(nums[r]);
-//                if (k == 2) {
-//                    System.out.println();
-//                    System.out.println("l index = "+l+" r index = "+r);
-//                    System.out.println("temp = "+temp);
-//                }
                 ans.add(temp);
                 l++;
                 r--;
