@@ -1,5 +1,7 @@
 package LinkedList;
 
+import static LinkedList.ListNode.printLL;
+
 /*
 Problem Statement
 Given are an integer B and a linked list A of length N.
@@ -58,15 +60,8 @@ public class Kth_Node_From_Middle {
         }
         return -1;
     }
-    private static void printLL(ListNode head) {
-        ListNode temp = head;
-        while (temp != null) {
-            System.out.print(temp.val+" -> ");
-            temp = temp.next;
-        }
-        System.out.println();
-    }
-    private static ListNode reverse(ListNode head, ListNode middle) {
+
+    static ListNode reverse(ListNode head, ListNode middle) {
         ListNode prev = head;
         ListNode curr = head.next;
         head.next = null;
@@ -78,7 +73,7 @@ public class Kth_Node_From_Middle {
         }
         return prev;
     }
-    private static ListNode findMiddle(ListNode head) {
+    static ListNode findMiddle(ListNode head) {
         ListNode slow = head, fast = head;
 
         while (fast != null && fast.next != null) {
