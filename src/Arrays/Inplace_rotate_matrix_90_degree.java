@@ -11,7 +11,7 @@ public class Inplace_rotate_matrix_90_degree {
         display2DArray(input);
     }
 
-    private static void display2DArray(int[][] input) {
+    public static void display2DArray(int[][] input) {
         for (int[] i : input) {
             for (int j : i) {
                 System.out.print(j + " ");
